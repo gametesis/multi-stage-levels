@@ -1,0 +1,938 @@
+{
+    "map": {
+        "2079:2077": {
+            "x": 2079,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {
+                "action":"let ball_size=GAME_LOGIC.game.ball_size\n if(GAME_LOGIC.game.level_vars.controller==undefined){\n GAME_LOGIC.game.level_vars.controller=new GameObject()\nGAME_LOGIC.game.level_vars.controller.shape={id:null}\n GAME_LOGIC.game.level_vars.controller.actual_state=\"0\"\n GAME_LOGIC.game.level_vars.controller.appendAnimation((self)=>{ \n  \nself.states={\n \"0\":()=>{\n GAME_LOGIC.game.level_vars.level_state=0 \n GAME_LOGIC.game.level_vars.already_created_next_level=true\nself.actual_state=\"wait\"\n self.prev_state=\"0\"\n GAME_LOGIC.game.level_vars.check_if_points_created=false },\"wait\":()=>{\nif(self.prev_state!=GAME_LOGIC.game.level_vars.level_state){\n let new_state = parseInt(self.prev_state)\n new_state++\n self.actual_state=new_state.toString() }\n},\n \"1\":()=>{\n GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2090*ball_size,\"green\"))\n GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2084*ball_size,\"red\"))\n GAME_LOGIC.game.level_vars.check_if_points_created=true\nself.actual_state=\"wait\"\n self.prev_state=\"1\" },\n\"2\":()=>{\n  GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2092*ball_size,\"green\"))\n GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2082*ball_size,\"red\"))\n GAME_LOGIC.game.level_vars.check_if_points_created=true\nself.actual_state=\"wait\"\n self.prev_state=\"2\"  \n},\n\"3\":()=>{\n  GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2090*ball_size,\"red\"))\n GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2084*ball_size,\"green\"))\n GAME_LOGIC.game.level_vars.check_if_points_created=true\nself.actual_state=\"wait\"\n self.prev_state=\"3\"  \n },\n\"4\":()=>{GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2092*ball_size,\"green\"))\n GAME_LOGIC.game.animated_objects.push(GAME_LOGIC.game.createBall(2099*ball_size,2082*ball_size,\"red\"))\n GAME_LOGIC.game.level_vars.check_if_points_created=true\nself.actual_state=\"wait\"\n self.prev_state=\"4\"  \n},\n\"5\":()=>{\n  \n}  \n} \n self.states[self.actual_state]()\n})\n GAME_LOGIC.game.animated_objects.push( GAME_LOGIC.game.level_vars.controller)    \n}  "
+            }
+        },
+        "2083:2087": {
+            "x": 2083,
+            "y": 2087,
+            "object_code": "blue_ball",
+            "other_options": {}
+        },
+        "2089:2087": {
+            "x": 2089,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+
+        "2091:2087": {
+            "x": 2091,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {
+                "action":"let ball_size=GAME_LOGIC.game.ball_size\n if(GAME_LOGIC.game.level_vars.level_state==0){\n }\nelse if(GAME_LOGIC.game.level_vars.level_state==1){\n GAME_LOGIC.game.goToPosition(self,2091*ball_size,(2087+5)*ball_size,1)\n}\nelse if(GAME_LOGIC.game.level_vars.level_state==2){\nself.new_real_time=0 \nGAME_LOGIC.game.goToPosition(self,2091*ball_size,(2087+2)*ball_size,1)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==3){\nself.new_real_time+=self.dt\n self.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100) \n}\nelse if(GAME_LOGIC.game.level_vars.level_state==4){self.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\nself.new_real_time+=self.dt\nself.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100)}\n else if(GAME_LOGIC.game.level_vars.level_state==5){ self.new_real_time+=self.dt\nself.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==6){ self.new_real_time+=self.dt\nself.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100)\n } "
+            }
+        },
+        "2093:2087": {
+            "x": 2093,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {
+                "action":"let ball_size=GAME_LOGIC.game.ball_size\n if(GAME_LOGIC.game.level_vars.level_state==0){\n }\nelse if(GAME_LOGIC.game.level_vars.level_state==1){\n GAME_LOGIC.game.goToPosition(self,2093*ball_size,(2087+5)*ball_size,1)\n}\nelse if(GAME_LOGIC.game.level_vars.level_state==2){\nself.new_real_time=0 \nGAME_LOGIC.game.goToPosition(self,2093*ball_size,(2087+2)*ball_size,1)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==3){\nself.new_real_time+=self.dt\n self.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100) \n}\nelse if(GAME_LOGIC.game.level_vars.level_state==4){self.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\nself.new_real_time+=self.dt\nself.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100)}\n else if(GAME_LOGIC.game.level_vars.level_state==5){ self.new_real_time+=self.dt\nself.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==6){ self.new_real_time+=self.dt\nself.move(self.x,(2087+2)*ball_size+Math.sin(self.new_real_time/2)*100)\n } "
+            }
+        },
+        "2095:2087": {
+            "x": 2095,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2099:2087": {
+            "x": 2099,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2101:2087": {
+            "x": 2101,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2103:2087": {
+            "x": 2103,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2105:2087": {
+            "x": 2105,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2109:2087": {
+            "x": 2109,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {
+                "action":"let ball_size=GAME_LOGIC.game.ball_size\n if(GAME_LOGIC.game.level_vars.level_state==0){\n }\nelse if(GAME_LOGIC.game.level_vars.level_state==1){\n GAME_LOGIC.game.goToPosition(self,2109*ball_size,(2087-5)*ball_size,1)\n}\nelse if(GAME_LOGIC.game.level_vars.level_state==2){\nself.new_real_time=0 \nGAME_LOGIC.game.goToPosition(self,2109*ball_size,(2087-2)*ball_size,1)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==3){\nself.new_real_time+=self.dt\n self.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100) \n}\nelse if(GAME_LOGIC.game.level_vars.level_state==4){\nself.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\nself.new_real_time+=self.dt\nself.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100)}\n else if(GAME_LOGIC.game.level_vars.level_state==5){self.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\n self.new_real_time+=self.dt\nself.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==6){self.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\n self.new_real_time+=self.dt\nself.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100)\n } "
+            }
+        },
+        "2107:2087": {
+            "x": 2107,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {
+                "action":"let ball_size=GAME_LOGIC.game.ball_size\n if(GAME_LOGIC.game.level_vars.level_state==0){\n }\nelse if(GAME_LOGIC.game.level_vars.level_state==1){\n GAME_LOGIC.game.goToPosition(self,2107*ball_size,(2087-5)*ball_size,1)\n}\nelse if(GAME_LOGIC.game.level_vars.level_state==2){\nself.new_real_time=0 \n GAME_LOGIC.game.goToPosition(self,2107*ball_size,(2087-2)*ball_size,1)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==3){\nself.new_real_time+=self.dt\n self.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100) \n}\nelse if(GAME_LOGIC.game.level_vars.level_state==4){\nself.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\nself.new_real_time+=self.dt\nself.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100)}\n else if(GAME_LOGIC.game.level_vars.level_state==5){self.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\n self.new_real_time+=self.dt\nself.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100)\n }\n else if(GAME_LOGIC.game.level_vars.level_state==6){self.color_vector=[1,1,0]\n self.shape.children[4].style.backgroundColor=\"rgb(255,255,0)\"\n self.new_real_time+=self.dt\nself.move(self.x,(2087-2)*ball_size+Math.sin(self.new_real_time/2)*-100)\n } "
+            }
+        },
+        "2097:2087": {
+            "x": 2097,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2115:2087": {
+            "x": 2115,
+            "y": 2087,
+            "object_code": "blue_ball",
+            "other_options": {}
+        },
+        "2099:2090": {
+            "x": 2099,
+            "y": 2092,
+            "object_code": "green_ball",
+            "other_options": {
+                "action":"//do nothing just adding on animated_objects"
+            }
+        },
+        "2099:2084": {
+            "x": 2099,
+            "y": 2082,
+            "object_code": "red_ball",
+            "other_options": {
+                "action":"//do nothing just adding on animated_objects"
+            }
+        },
+        "2078:2097": {
+            "x": 2078,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {
+                "action":"//check if points were created\n if(GAME_LOGIC.game.level_vars.check_if_points_created){\n if(GAME_LOGIC.game.animated_objects.filter(el=>el.shape!==undefined).find(el=>el.shape.id==\"green_ball\")!=undefined && GAME_LOGIC.game.animated_objects.filter(el=>el.shape!==undefined).find(el=>el.shape.id==\"red_ball\")!=undefined ) {\nGAME_LOGIC.game.level_vars.already_created_next_level=true\n GAME_LOGIC.game.level_vars.check_if_points_created=false \n} \n}"
+            }
+        },
+        "2078:2077": {
+            "x": 2078,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {
+                "action":"//check for points collected\n  if(GAME_LOGIC.game.level_vars.already_created_next_level && GAME_LOGIC.game.animated_objects.filter(el=>el.shape!==undefined).find(el=>el.shape.id==\"green_ball\")==undefined && GAME_LOGIC.game.animated_objects.filter(el=>el.shape!==undefined).find(el=>el.shape.id==\"red_ball\")==undefined) {\nlet new_level=parseInt(GAME_LOGIC.game.level_vars.level_state)\nnew_level++ \nGAME_LOGIC.game.level_vars.level_state=new_level.toString()\n GAME_LOGIC.game.level_vars.already_created_next_level=false}\n"
+            }
+        },
+        "2079:2097": {
+            "x": 2079,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2120:2077": {
+            "x": 2120,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2120:2097": {
+            "x": 2120,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2119:2097": {
+            "x": 2119,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2119:2077": {
+            "x": 2119,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2080:2077": {
+            "x": 2080,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2081:2077": {
+            "x": 2081,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2082:2077": {
+            "x": 2082,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2083:2077": {
+            "x": 2083,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2084:2077": {
+            "x": 2084,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2085:2077": {
+            "x": 2085,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2086:2077": {
+            "x": 2086,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2087:2077": {
+            "x": 2087,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2088:2077": {
+            "x": 2088,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2089:2077": {
+            "x": 2089,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2090:2077": {
+            "x": 2090,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2091:2077": {
+            "x": 2091,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2092:2077": {
+            "x": 2092,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2093:2077": {
+            "x": 2093,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2094:2077": {
+            "x": 2094,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2095:2077": {
+            "x": 2095,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2096:2077": {
+            "x": 2096,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2097:2077": {
+            "x": 2097,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2098:2077": {
+            "x": 2098,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2099:2077": {
+            "x": 2099,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2100:2077": {
+            "x": 2100,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2101:2077": {
+            "x": 2101,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2102:2077": {
+            "x": 2102,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2103:2077": {
+            "x": 2103,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2104:2077": {
+            "x": 2104,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2105:2077": {
+            "x": 2105,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2106:2077": {
+            "x": 2106,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2107:2077": {
+            "x": 2107,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2108:2077": {
+            "x": 2108,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2109:2077": {
+            "x": 2109,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2110:2077": {
+            "x": 2110,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2111:2077": {
+            "x": 2111,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2112:2077": {
+            "x": 2112,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2113:2077": {
+            "x": 2113,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2114:2077": {
+            "x": 2114,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2115:2077": {
+            "x": 2115,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2116:2077": {
+            "x": 2116,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2117:2077": {
+            "x": 2117,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2118:2077": {
+            "x": 2118,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2118:2097": {
+            "x": 2118,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2117:2097": {
+            "x": 2117,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2116:2097": {
+            "x": 2116,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2115:2097": {
+            "x": 2115,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2114:2097": {
+            "x": 2114,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2113:2097": {
+            "x": 2113,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2112:2097": {
+            "x": 2112,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2111:2097": {
+            "x": 2111,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2110:2097": {
+            "x": 2110,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2109:2097": {
+            "x": 2109,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2108:2097": {
+            "x": 2108,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2107:2097": {
+            "x": 2107,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2106:2097": {
+            "x": 2106,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2105:2097": {
+            "x": 2105,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2104:2097": {
+            "x": 2104,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2103:2097": {
+            "x": 2103,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2102:2097": {
+            "x": 2102,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2101:2097": {
+            "x": 2101,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2100:2097": {
+            "x": 2100,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2099:2097": {
+            "x": 2099,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2098:2097": {
+            "x": 2098,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2097:2097": {
+            "x": 2097,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2096:2097": {
+            "x": 2096,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2095:2097": {
+            "x": 2095,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2094:2097": {
+            "x": 2094,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2093:2097": {
+            "x": 2093,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2092:2097": {
+            "x": 2092,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2091:2097": {
+            "x": 2091,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2090:2097": {
+            "x": 2090,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2089:2097": {
+            "x": 2089,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2088:2097": {
+            "x": 2088,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2087:2097": {
+            "x": 2087,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2086:2097": {
+            "x": 2086,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2085:2097": {
+            "x": 2085,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2084:2097": {
+            "x": 2084,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2083:2097": {
+            "x": 2083,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2082:2097": {
+            "x": 2082,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2081:2097": {
+            "x": 2081,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2080:2097": {
+            "x": 2080,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2087:2087": {
+            "x": 2087,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2111:2087": {
+            "x": 2111,
+            "y": 2087,
+            "object_code": "green_enemy",
+            "other_options": {}
+        },
+        "2077:2077": {
+            "x": 2077,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2077": {
+            "x": 2076,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2077:2097": {
+            "x": 2077,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2097": {
+            "x": 2076,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2078": {
+            "x": 2076,
+            "y": 2078,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2079": {
+            "x": 2076,
+            "y": 2079,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2080": {
+            "x": 2076,
+            "y": 2080,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2081": {
+            "x": 2076,
+            "y": 2081,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2082": {
+            "x": 2076,
+            "y": 2082,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2083": {
+            "x": 2076,
+            "y": 2083,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2084": {
+            "x": 2076,
+            "y": 2084,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2085": {
+            "x": 2076,
+            "y": 2085,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2086": {
+            "x": 2076,
+            "y": 2086,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2087": {
+            "x": 2076,
+            "y": 2087,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2088": {
+            "x": 2076,
+            "y": 2088,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2089": {
+            "x": 2076,
+            "y": 2089,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2090": {
+            "x": 2076,
+            "y": 2090,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2091": {
+            "x": 2076,
+            "y": 2091,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2092": {
+            "x": 2076,
+            "y": 2092,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2093": {
+            "x": 2076,
+            "y": 2093,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2094": {
+            "x": 2076,
+            "y": 2094,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2095": {
+            "x": 2076,
+            "y": 2095,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2076:2096": {
+            "x": 2076,
+            "y": 2096,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2121:2077": {
+            "x": 2121,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2077": {
+            "x": 2122,
+            "y": 2077,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2121:2097": {
+            "x": 2121,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2097": {
+            "x": 2122,
+            "y": 2097,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2096": {
+            "x": 2122,
+            "y": 2096,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2095": {
+            "x": 2122,
+            "y": 2095,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2094": {
+            "x": 2122,
+            "y": 2094,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2093": {
+            "x": 2122,
+            "y": 2093,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2092": {
+            "x": 2122,
+            "y": 2092,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2091": {
+            "x": 2122,
+            "y": 2091,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2090": {
+            "x": 2122,
+            "y": 2090,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2089": {
+            "x": 2122,
+            "y": 2089,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2088": {
+            "x": 2122,
+            "y": 2088,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2087": {
+            "x": 2122,
+            "y": 2087,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2086": {
+            "x": 2122,
+            "y": 2086,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2085": {
+            "x": 2122,
+            "y": 2085,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2084": {
+            "x": 2122,
+            "y": 2084,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2083": {
+            "x": 2122,
+            "y": 2083,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2082": {
+            "x": 2122,
+            "y": 2082,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2081": {
+            "x": 2122,
+            "y": 2081,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2080": {
+            "x": 2122,
+            "y": 2080,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2079": {
+            "x": 2122,
+            "y": 2079,
+            "object_code": "black_ball",
+            "other_options": {}
+        },
+        "2122:2078": {
+            "x": 2122,
+            "y": 2078,
+            "object_code": "black_ball",
+            "other_options": {}
+        }
+    },
+    "player_position": {
+        "x": 2083,
+        "y": 2083
+    },
+    "min_score_to_win": 12,
+    "time_limit": null,
+    "acceleration": 12,
+    "contact_radius_size": 300,
+    "max_speed": 280,
+    "zoom_value": 35,
+    "add_powers": false,
+    "map_edge_type": "deadly",
+    "edge_distance": 100,
+    "next_level":"{{home}}/24.json",
+    "slow_time": "0.5",
+    "slow_time_duration": "1",
+    "size_power": "20",
+    "size_power_duration": "1",
+    "speed_power": "2",
+    "speed_power_duration": "1",
+    "tutorial": {}
+}
