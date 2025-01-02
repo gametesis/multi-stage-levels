@@ -11,7 +11,7 @@
         "2083:2087": {
             "x": 2083,
             "y": 2087,
-            "object_code": "blue_ball",
+            "object_code": "blue_dash",
             "other_options": {}
         },
         "2089:2087": {
@@ -920,7 +920,7 @@
     },
     "min_score_to_win": 12,
     "time_limit": null,
-    "acceleration": 12,
+    "acceleration": 16,
     "contact_radius_size": 300,
     "max_speed": 280,
     "zoom_value": 35,
