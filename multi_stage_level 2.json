@@ -930,7 +930,7 @@
     "zoom_value": 35,
     "add_powers": false,
     "map_edge_type": "deadly",
-    "edge_distance": 100,
+    "edge_distance": 15,
     "next_level":"",
     "slow_time": "0.5",
     "slow_time_duration": "1",
