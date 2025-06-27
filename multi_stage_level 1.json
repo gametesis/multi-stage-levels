@@ -926,7 +926,7 @@
     "zoom_value": 35,
     "add_powers": false,
     "map_edge_type": "deadly",
-    "edge_distance": 15,
+    "edge_distance": 30,
     "next_level":"https://raw.githubusercontent.com/gametesis/multi-stage-levels/refs/heads/main/multi_stage_level%202.json",
     "slow_time": "0.5",
     "slow_time_duration": "1",
